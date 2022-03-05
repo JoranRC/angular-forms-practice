@@ -1,0 +1,20 @@
+<h1>Reactive form</h1>
+
+<form (ngSubmit)="submitForm()"
+      [formGroup]="reactiveForm">
+  <div>
+    <label for="nameIdReactive">First name</label>
+    <input id="nameIdReactive"
+           type="text"
+           placeholder="Name"
+           formControlName="firstName" />
+    <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required">
+        Please enter your first name
+      </div>
+      <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
+        Value must be longer than 3 characters
+      </div>
+  </div>
+  <button type="submit">Submit</button>
+  <button type="button" (click)="populateForm()">Populate form</button>
+</form>
