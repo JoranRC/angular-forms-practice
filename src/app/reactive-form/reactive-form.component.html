@@ -8,13 +8,35 @@
            type="text"
            placeholder="Name"
            formControlName="firstName" />
+    <label for="customValidationInputId">Custom Validation Input</label>
+    <input id="customValidationInputId"
+           type="text"
+           formControlName="customValidationInput" />
+    <div *ngIf="reactiveForm.get('customValidationInput').errors?.customValidationInput">
+      Custom validation is invalid
+    </div>
     <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required">
-        Please enter your first name
-      </div>
-      <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
-        Value must be longer than 3 characters
-      </div>
+      Please enter your first name
+    </div>
+    <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
+      Value must be longer than 3 characters
+    </div>
   </div>
-  <button type="submit">Submit</button>
-  <button type="button" (click)="populateForm()">Populate form</button>
+  <button [disabled]="reactiveForm.invalid "
+          type="submit">Submit</button>
+  <button type="button"
+          (click)="populateForm()">Populate form</button>
+  <button type="button"
+          (click)="clearValidation()">Clear validators</button>
+  <button type="button"
+          (click)="setValidation()">Set validators</button>
+  <button type="button"
+          (click)="logForm()">Log form</button>
+  <button type="button"
+          (click)="addValueChangesSubscribtion()">Add value changes subscription</button>
+
 </form>
+
+<div>
+  {{reactiveForm.value | json}}
+</div>
