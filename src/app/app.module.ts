@@ -6,13 +6,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { FormArrayComponent } from './form-array/form-array.component';
+import { NestedFormGroupsComponent } from './nested-form-groups/nested-form-groups.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     TemplateDrivenComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    FormArrayComponent,
+    NestedFormGroupsComponent
   ],
   imports: [
     BrowserModule,
