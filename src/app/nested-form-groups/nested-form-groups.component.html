@@ -1,1 +1,33 @@
-<p>nested-form-groups works!</p>
+<form [formGroup]="reactiveForm"
+      (ngSubmit)="submitForm()"
+      novalidate>
+
+  <label>
+    <input type="text"
+           placeholder="email"
+           formControlName="email" />
+  </label>
+
+  <div [formGroup]="reactiveForm.controls.adress">
+    <label>
+      <input type="text"
+             placeholder="Name"
+             formControlName="firstName" />
+    </label>
+    <label>
+      <input type="text"
+             placeholder="Street "
+             formControlName="street" />
+    </label>
+    <label>
+      <input type="text"
+             placeholder="Confirm street"
+             formControlName="streetConfirm" />
+    </label>
+  </div>
+
+  <button [disabled]="reactiveForm.invalid "
+          type="submit">Submit</button>
+  <button type="button"
+          (click)="logForm()">Log form</button>
+</form>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormControl,
   FormGroup,
   FormBuilder,
   Validators,
   ValidatorFn,
   AbstractControl,
-  FormArray,
+  ValidationErrors,
 } from '@angular/forms';
 
 @Component({
@@ -16,7 +15,6 @@ import {
 })
 export class ReactiveFormComponent implements OnInit {
   reactiveForm: FormGroup;
-  firstName: FormControl;
 
   constructor(private fb: FormBuilder) {}
 
@@ -54,7 +52,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   customValidation(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
+    return (control: AbstractControl): ValidationErrors | null => {
       if (control.value !== 'GOAT') {
         return {
           customValidationInput: true,
@@ -69,7 +67,7 @@ export class ReactiveFormComponent implements OnInit {
       console.log('firstName value changed to: ', value);
     });
   }
-  
+
   logForm(): void {
     console.log(this.reactiveForm);
   }

@@ -9,6 +9,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { NestedFormGroupsComponent } from './nested-form-groups/nested-form-groups.component';
 import { CheckBoxesComponent } from './check-boxes/check-boxes.component';
+import { CommonInputTypesComponent } from './common-input-types/common-input-types.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CheckBoxesComponent } from './check-boxes/check-boxes.component';
     ReactiveFormComponent,
     FormArrayComponent,
     NestedFormGroupsComponent,
-    CheckBoxesComponent
+    CheckBoxesComponent,
+    CommonInputTypesComponent
   ],
   imports: [
     BrowserModule,
