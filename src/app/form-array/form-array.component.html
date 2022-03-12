@@ -1,1 +1,19 @@
-<p>form-array works!</p>
+<form [formGroup]="reactiveForm"
+      (ngSubmit)="submitForm()"
+      novalidate>
+
+  <div>
+    <label formArrayName="names"
+           *ngFor="let person of getFormArray().controls; let i=index">
+      <input type="text"
+             placeholder="Name"
+             [formControlName]="i" />
+    </label>
+
+  </div>
+
+  <button [disabled]="reactiveForm.invalid "
+          type="submit">Submit</button>
+  <button type="button"
+          (click)="addFromControl()">Add name</button>
+</form>

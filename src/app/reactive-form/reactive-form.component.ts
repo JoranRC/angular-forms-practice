@@ -6,6 +6,7 @@ import {
   Validators,
   ValidatorFn,
   AbstractControl,
+  FormArray,
 } from '@angular/forms';
 
 @Component({
@@ -28,6 +29,8 @@ export class ReactiveFormComponent implements OnInit {
     this.reactiveForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       customValidationInput: ['GOAT', this.customValidation()],
+      radioButton: '',
+      checkbox: 'testValue'
     });
   }
 
@@ -66,7 +69,7 @@ export class ReactiveFormComponent implements OnInit {
       console.log('firstName value changed to: ', value);
     });
   }
-
+  
   logForm(): void {
     console.log(this.reactiveForm);
   }

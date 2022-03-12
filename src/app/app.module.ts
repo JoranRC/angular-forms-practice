@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { NestedFormGroupsComponent } from './nested-form-groups/nested-form-groups.component';
+import { CheckBoxesComponent } from './check-boxes/check-boxes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NestedFormGroupsComponent } from './nested-form-groups/nested-form-grou
     TemplateDrivenComponent,
     ReactiveFormComponent,
     FormArrayComponent,
-    NestedFormGroupsComponent
+    NestedFormGroupsComponent,
+    CheckBoxesComponent
   ],
   imports: [
     BrowserModule,

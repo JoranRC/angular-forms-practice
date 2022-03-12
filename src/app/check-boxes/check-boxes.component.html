@@ -1,0 +1,13 @@
+<form [formGroup]="reactiveForm"
+      (ngSubmit)="submitForm()">
+  <div *ngFor="let data of data">
+    <label>
+      <input type="checkbox"
+             [value]="data.value"
+             (change)="onCheckboxChange($event)" />
+      {{data.name}}
+    </label>
+  </div>
+  <button [disabled]="reactiveForm.invalid "
+          type="submit">Submit</button>
+</form>
