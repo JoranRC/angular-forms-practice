@@ -6,6 +6,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'nested-form-groups-ui',
@@ -14,6 +15,7 @@ import {
 })
 export class NestedFormGroupsComponent implements OnInit {
   reactiveForm: FormGroup;
+  displayAdressError
 
   constructor(private fb: FormBuilder) {}
 
@@ -28,22 +30,32 @@ export class NestedFormGroupsComponent implements OnInit {
     });
 
     this.reactiveForm.get('adress').setValidators(this.customValidation());
+    this.reactiveForm.get('adress').get('streetConfirm').valueChanges.pipe(debounceTime(1000)).subscribe(value => this.checkAdressFormGroupForErrors());
   }
 
   customValidation(): ValidatorFn {
     return (formGroup: FormGroup): ValidationErrors | null => {
-      if (
-        formGroup.controls.street.value !==
-        formGroup.controls.streetConfirm.value
-      ) {
+      if (formGroup.controls.street.value !== formGroup.controls.streetConfirm.value) {
         return {
-          adress: true,
+          adressDoesNotMatch: true,
         };
       }
     };
   }
 
+  checkAdressFormGroupForErrors() {
+    if(this.reactiveForm.get('adress').errors?.adressDoesNotMatch) {
+        this.displayAdressError = true;
+    } else {
+        this.displayAdressError = false;
+    }
+  }
+
   logForm(): void {
+    console.log(this.reactiveForm);
+  }
+
+  logAdressForm(): void {
     console.log(this.reactiveForm.get('adress'));
   }
 

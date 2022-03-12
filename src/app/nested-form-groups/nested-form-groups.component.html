@@ -26,8 +26,14 @@
     </label>
   </div>
 
+  <div *ngIf="displayAdressError">
+    Error: street is not the same
+  </div>
+
   <button [disabled]="reactiveForm.invalid "
           type="submit">Submit</button>
   <button type="button"
           (click)="logForm()">Log form</button>
+          <button type="button"
+          (click)="logAdressForm()">Log adress form</button>
 </form>
