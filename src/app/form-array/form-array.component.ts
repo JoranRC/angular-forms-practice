@@ -17,7 +17,6 @@ export class FormArrayComponent implements OnInit {
     });
 
     this.addFromControl();
-    console.log(this.reactiveForm)
   }
 
   getFormArray(): FormArray {

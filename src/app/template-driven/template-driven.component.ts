@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'template-driven-ui',
@@ -16,8 +17,11 @@ export class TemplateDrivenComponent implements OnInit {
       }
   }
 
-  submitForm(form: any): void {
-    console.log('Submit in template driven is called');
+  logForm(form: FormGroup): void {
+    console.log(form);
+  }
+
+  submitForm(form: FormGroup): void {
     console.log(form);
   }
 
