@@ -12,8 +12,7 @@
            minlength="3"
            [(ngModel)]="person.firstName"
            name="firstName"
-           #firstName="ngModel"
-           [ngClass]="{'invalid': (firstName.touched || firstName.dirty) && !firstName.valid}" />
+           #firstName="ngModel" />
   </label>
 
   <div *ngIf="firstName.touched && firstName.errors?.required">

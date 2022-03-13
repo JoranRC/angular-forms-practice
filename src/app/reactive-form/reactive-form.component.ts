@@ -47,9 +47,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   setValidation(): void {
-    this.reactiveForm
-      .get('firstName')
-      .setValidators([Validators.required, Validators.minLength(3)]);
+    this.reactiveForm.get('firstName').setValidators([Validators.required, Validators.minLength(3)]);
     this.reactiveForm.get('firstName').updateValueAndValidity();
   }
 
