@@ -6,6 +6,7 @@ import {
   ValidatorFn,
   AbstractControl,
   ValidationErrors,
+  FormControl,
 } from '@angular/forms';
 
 @Component({
@@ -15,20 +16,21 @@ import {
 })
 export class ReactiveFormComponent implements OnInit {
   reactiveForm: FormGroup;
+  firstNameControl: FormControl;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     //by hand creation of the reactiveForm without FormBuilder
-    // this.firstName = new FormControl();
-    // this.reactiveForm = new FormGroup({firstName: this.firstName});
+    this.firstNameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+    this.reactiveForm = new FormGroup({ firstName: this.firstNameControl });
 
     //using the formBuilder service to create the formGroup
     this.reactiveForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       customValidationInput: ['GOAT', this.customValidation()],
       radioButton: '',
-      checkbox: 'testValue'
+      checkbox: 'testValue',
     });
   }
 

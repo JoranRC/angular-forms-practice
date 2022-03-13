@@ -3,14 +3,14 @@
 <form novalidate
       (ngSubmit)="submitForm(templateDrivenForm.form)"
       #templateDrivenForm="ngForm">
-      
+
   <label>
     First name
     <input type="text"
            placeholder="Name"
            required
            minlength="3"
-           [(ngModel)]="person.firstname"
+           [(ngModel)]="person.firstName"
            name="firstName"
            #firstName="ngModel"
            [ngClass]="{'invalid': (firstName.touched || firstName.dirty) && !firstName.valid}" />
