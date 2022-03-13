@@ -3,48 +3,43 @@
 <form novalidate
       (ngSubmit)="submitForm()"
       [formGroup]="reactiveForm">
-  <div>
-    <label>First name
-      <input type="text"
-             placeholder="Name"
-             formControlName="firstName" />
-    </label>
-    <label>Custom Validation Input
-      <input type="text"
-             formControlName="customValidationInput" />
-    </label>
 
-    <div *ngIf="reactiveForm.get('customValidationInput').errors?.customValidationInput">
-      Custom validation is invalid
-    </div>
-    <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required">
-      Please enter your first name
-    </div>
-    <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
-      Value must be longer than 3 characters
-    </div>
+  <label>First name
+    <input type="text"
+           placeholder="Name"
+           formControlName="firstName" />
+  </label>
+  <label>Custom Validation Input
+    <input type="text"
+           formControlName="customValidationInput" />
+  </label>
+
+  <div *ngIf="reactiveForm.get('customValidationInput').errors?.customValidationInput">
+    Custom validation is invalid
+  </div>
+  <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required">
+    Please enter your first name
+  </div>
+  <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
+    Value must be longer than 3 characters
   </div>
 
-  <div>
-    <label>radio1</label>
-    <input formControlName="radioButton"
-           id="radio1"
-           type="radio"
-           value="radio1">
-    <label for="radio2">radio2</label>
-    <input formControlName="radioButton"
-           id="radio2"
-           type="radio"
-           value="radio2">
-  </div>
+  <label>radio1</label>
+  <input formControlName="radioButton"
+         id="radio1"
+         type="radio"
+         value="radio1">
+  <label for="radio2">radio2</label>
+  <input formControlName="radioButton"
+         id="radio2"
+         type="radio"
+         value="radio2">
 
-  <div>
-    <label for="checkbox1"></label>
-    <input formControlName="checkbox"
-           id="checkbox1"
-           type="checkBox"
-           value="checkbox1">
-  </div>
+  <label for="checkbox1"></label>
+  <input formControlName="checkbox"
+         id="checkbox1"
+         type="checkBox"
+         value="checkbox1">
 
   <button [disabled]="reactiveForm.invalid"
           type="submit">Submit</button>
