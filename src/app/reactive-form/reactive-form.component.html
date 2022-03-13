@@ -1,18 +1,19 @@
 <h1>Reactive form</h1>
 
-<form (ngSubmit)="submitForm()"
-      [formGroup]="reactiveForm"
-      novalidate>
+<form novalidate
+      (ngSubmit)="submitForm()"
+      [formGroup]="reactiveForm">
   <div>
-    <label for="nameIdReactive">First name</label>
-    <input id="nameIdReactive"
-           type="text"
-           placeholder="Name"
-           formControlName="firstName" />
-    <label for="customValidationInputId">Custom Validation Input</label>
-    <input id="customValidationInputId"
-           type="text"
-           formControlName="customValidationInput" />
+    <label>First name
+      <input type="text"
+             placeholder="Name"
+             formControlName="firstName" />
+    </label>
+    <label>Custom Validation Input
+      <input type="text"
+             formControlName="customValidationInput" />
+    </label>
+
     <div *ngIf="reactiveForm.get('customValidationInput').errors?.customValidationInput">
       Custom validation is invalid
     </div>

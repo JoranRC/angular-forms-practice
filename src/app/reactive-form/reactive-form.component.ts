@@ -73,7 +73,6 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   submitForm(): void {
-    console.log('Submit in reactive form is called');
     console.log(this.reactiveForm);
   }
 }

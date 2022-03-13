@@ -1,0 +1,22 @@
+<form novalidate
+      (ngSubmit)="submitForm()"
+      [formGroup]="reactiveForm">
+
+  <label>First name
+    <input type="text"
+           placeholder="Name"
+           formControlName="firstName" />
+  </label>
+
+  <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required">
+    Please enter your first name
+  </div>
+  <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
+    Value must be longer than 3 characters
+  </div>
+
+  <button [disabled]="reactiveForm.invalid"
+          type="submit">Submit</button>
+  <button type="button"
+          (click)="logForm()">Log form</button>
+</form>
