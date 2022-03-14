@@ -37,7 +37,7 @@ export class ReactiveFormComponent implements OnInit {
   populateForm(): void {
     //use setValue to set all the formcontrols, use patchValue if you want to set the values of a subset of the formcontrols
     this.reactiveForm.patchValue({
-      firstName: 'John',
+      firstName: 'John'
     });
   }
 

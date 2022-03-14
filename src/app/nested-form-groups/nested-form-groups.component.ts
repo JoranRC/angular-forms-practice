@@ -30,6 +30,7 @@ export class NestedFormGroupsComponent implements OnInit {
     });
 
     this.reactiveForm.get('adress').setValidators(this.customValidation());
+    this.reactiveForm.get('adress').updateValueAndValidity();
     this.reactiveForm.get('adress').get('streetConfirm').valueChanges.pipe(debounceTime(1000)).subscribe(value => this.checkAdressFormGroupForErrors());
   }
 

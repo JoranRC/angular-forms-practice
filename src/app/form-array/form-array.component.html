@@ -2,18 +2,32 @@
       (ngSubmit)="submitForm()"
       novalidate>
 
-  <div>
-    <label formArrayName="names"
-           *ngFor="let person of getFormArray().controls; let i=index">
+  <label formArrayName="names"
+         *ngFor="let name of getFormNamesArray().controls; let i=index">
+    Name
+    <input type="text"
+           placeholder="Name"
+           [formControlName]="i" />
+  </label>
+
+  <div formArrayName="namesAndSurnames"
+       *ngFor="let nameAndSurname of getFormNamesAndSurnamesArray().controls; let i=index">
+    <label [formGroupName]="i">
       <input type="text"
              placeholder="Name"
-             [formControlName]="i" />
+             formControlName="name" />
     </label>
-
+    <label [formGroupName]="i">
+      <input type="text"
+             placeholder="Surname"
+             formControlName="surname" />
+    </label>
   </div>
 
   <button [disabled]="reactiveForm.invalid "
           type="submit">Submit</button>
   <button type="button"
-          (click)="addFromControl()">Add name</button>
+          (click)="addFormControl()">Add name</button>
+  <button type="button"
+          (click)="addFormGroup()">Add name</button>
 </form>

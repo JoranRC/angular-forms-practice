@@ -14,17 +14,28 @@ export class FormArrayComponent implements OnInit {
   ngOnInit(): void {
     this.reactiveForm = this.fb.group({
       names: this.fb.array([]),
+      namesAndSurnames: this.fb.array([]),
     });
 
-    this.addFromControl();
+    this.addFormControl();
+    this.addFormGroup();
   }
 
-  getFormArray(): FormArray {
+  getFormNamesArray(): FormArray {
     return this.reactiveForm.get('names') as FormArray;
   }
 
-  addFromControl(): void {
-      this.getFormArray().controls.push(new FormControl())
+  getFormNamesAndSurnamesArray(): FormArray {
+    return this.reactiveForm.get('namesAndSurnames') as FormArray;
+  }
+
+  addFormControl(): void {
+    this.getFormNamesArray().push(this.fb.control(''));
+    this.reactiveForm.reset();
+  }
+
+  addFormGroup(): void {
+      this.getFormNamesAndSurnamesArray().push(this.fb.group({name: this.fb.control(''), surname: this.fb.control('')}))
   }
 
   submitForm(): void {

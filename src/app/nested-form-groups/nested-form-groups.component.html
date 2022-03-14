@@ -26,7 +26,7 @@
     </label>
   </div>
 
-  <div *ngIf="displayAdressError">
+  <div *ngIf="displayAdressError && reactiveForm.get('adress').errors?.adressDoesNotMatch">
     Error: street is not the same
   </div>
 
@@ -34,6 +34,6 @@
           type="submit">Submit</button>
   <button type="button"
           (click)="logForm()">Log form</button>
-          <button type="button"
+  <button type="button"
           (click)="logAdressForm()">Log adress form</button>
 </form>
