@@ -1,3 +1,64 @@
-<p>common-input-types works!</p>
+<form novalidate
+      (ngSubmit)="submitForm()"
+      [formGroup]="reactiveForm">
 
-Radio buttons and dropdowns
+  <label>Name
+    <input type="text"
+           placeholder="Name"
+           formControlName="name"
+           required />
+  </label>
+  <div *ngIf="reactiveForm.get('name').errors?.required && showError"
+       class="error">
+    Name field is required
+  </div>
+
+  <label>
+      Male
+    <input formControlName="gender"
+           type="radio"
+           value="Male">
+  </label>
+  <label>
+      Female
+    <input formControlName="gender"
+           type="radio"
+           value="Female">
+  </label>
+  <label>
+      Other
+    <input formControlName="gender"
+           type="radio"
+           value="Other">
+  </label>
+
+  <label formArrayName="hobbies"
+         *ngFor="let hobby of getHobbies().controls; let i=index">
+    Hobby
+    <input type="text"
+           placeholder="Hobby"
+           [formControlName]="i"
+           required />
+  </label>
+  <div *ngIf="getHobbies().invalid && showError"
+       class="error">
+    One or more required hobby fields are not filled in
+  </div>
+
+  <div [formGroup]="reactiveForm.controls.adress">
+
+  </div>
+
+  <label>Accept terms
+    <input formControlName="acceptedTerms"
+           type="checkbox">
+  </label>
+
+  <button type="submit">Submit</button>
+  <button type="button"
+          (click)="logForm()">Log form</button>
+  <button type="button"
+          (click)="addHobby()">Add hobby</button>
+  <button type="button"
+          (click)="removeHobby()">Remove hobby</button>
+</form>
