@@ -11,6 +11,7 @@ import { NestedFormGroupsComponent } from './nested-form-groups/nested-form-grou
 import { CheckBoxesComponent } from './check-boxes/check-boxes.component';
 import { CommonInputTypesComponent } from './common-input-types/common-input-types.component';
 import { SimpleReactiveFormComponent } from './simple-reactive-form/simple-reactive-form.component';
+import { CustomCheckboxesFormComponent } from './custom-checkboxes-form/custom-checkboxes-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SimpleReactiveFormComponent } from './simple-reactive-form/simple-react
     NestedFormGroupsComponent,
     CheckBoxesComponent,
     CommonInputTypesComponent,
-    SimpleReactiveFormComponent
+    SimpleReactiveFormComponent,
+    CustomCheckboxesFormComponent
   ],
   imports: [
     BrowserModule,

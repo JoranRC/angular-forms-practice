@@ -14,19 +14,19 @@
   </div>
 
   <label>
-      Male
+    Male
     <input formControlName="gender"
            type="radio"
            value="Male">
   </label>
   <label>
-      Female
+    Female
     <input formControlName="gender"
            type="radio"
            value="Female">
   </label>
   <label>
-      Other
+    Other
     <input formControlName="gender"
            type="radio"
            value="Other">
@@ -47,20 +47,21 @@
 
   <div [formGroup]="reactiveForm.controls.adress">
     <label>Street
-        <input type="text"
-               placeholder="Street"
-               formControlName="street"
-               required />
-      </label>
-      <label>Street
-        <input type="number"
-               placeholder="Number"
-               formControlName="number"
-               required />
-      </label>
+      <input type="text"
+             placeholder="Street"
+             formControlName="street"
+             required />
+    </label>
+    <label>Street
+      <input type="number"
+             placeholder="Number"
+             formControlName="number"
+             required />
+    </label>
   </div>
 
-  <label>Accept terms
+  <label class="checkbox">
+    Accept terms
     <input formControlName="acceptedTerms"
            type="checkbox">
   </label>
@@ -73,3 +74,5 @@
   <button type="button"
           (click)="removeHobby()">Remove hobby</button>
 </form>
+
+Reactive form value: {{reactiveForm.value | json}}

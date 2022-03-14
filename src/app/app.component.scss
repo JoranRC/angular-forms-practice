@@ -8,6 +8,12 @@ button {
 label {
     display: block;
     margin-bottom: 16px;
+    &.checkbox {
+        display: inline-block;
+        input {
+            display: inline-block
+        } 
+    }
 }
 
 input {
@@ -18,4 +24,3 @@ input {
 .error {
     color: #d34171;
 }
-

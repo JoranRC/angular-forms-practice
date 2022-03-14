@@ -1,0 +1,8 @@
+<form [formGroup]="reactiveForm"
+      (ngSubmit)="submitForm()">
+
+  <check-boxes [reactiveFormArray]="this.reactiveForm.controls.checkBoxesArray" [data]="data"></check-boxes>
+
+  <button [disabled]="reactiveForm.invalid "
+          type="submit">Submit</button>
+</form>
