@@ -8,7 +8,7 @@ import { FormArray, FormControl } from '@angular/forms';
 })
 export class CheckBoxesComponent implements OnInit {
   @Input() reactiveFormArray: FormArray;
-  @Input() data: Array<any>;
+  @Input() data: Array<{description: string, value: string}>;
 
   constructor() {}
 
