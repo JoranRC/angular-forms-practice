@@ -46,7 +46,18 @@
   </div>
 
   <div [formGroup]="reactiveForm.controls.adress">
-
+    <label>Street
+        <input type="text"
+               placeholder="Street"
+               formControlName="street"
+               required />
+      </label>
+      <label>Street
+        <input type="number"
+               placeholder="Number"
+               formControlName="number"
+               required />
+      </label>
   </div>
 
   <label>Accept terms
