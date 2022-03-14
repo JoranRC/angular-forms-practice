@@ -28,9 +28,7 @@ export class ReactiveFormComponent implements OnInit {
     //using the formBuilder service to create the formGroup
     this.reactiveForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
-      customValidationInput: ['GOAT', this.customValidation()],
-      radioButton: '',
-      checkbox: 'testValue',
+      customValidationInput: ['GOAT', this.customValidation()]
     });
   }
 

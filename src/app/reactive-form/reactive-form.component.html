@@ -1,57 +1,45 @@
-<h1>Reactive form</h1>
+<div class="page-wrapper">
+  <h1>Reactive form</h1>
 
-<form novalidate
-      (ngSubmit)="submitForm()"
-      [formGroup]="reactiveForm">
+  <form novalidate
+        (ngSubmit)="submitForm()"
+        [formGroup]="reactiveForm">
 
-  <label>First name
-    <input type="text"
-           placeholder="Name"
-           formControlName="firstName" />
-  </label>
-  <label>Custom Validation Input
-    <input type="text"
-           formControlName="customValidationInput" />
-  </label>
+    <label>First name
+      <input type="text"
+             placeholder="Name"
+             formControlName="firstName" />
+    </label>
+    <label>Custom Validation Input
+      <input type="text"
+             formControlName="customValidationInput" />
+    </label>
 
-  <div *ngIf="reactiveForm.get('customValidationInput').errors?.customValidationInput">
-    Custom validation is invalid
-  </div>
-  <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required">
-    Please enter your first name
-  </div>
-  <div *ngIf="reactiveForm.get('firstName').errors?.minlength">
-    Value must be longer than 3 characters
-  </div>
+    <div *ngIf="reactiveForm.get('customValidationInput').errors?.customValidationInput"
+         class="error">
+      Custom validation is invalid
+    </div>
+    <div *ngIf="reactiveForm.get('firstName').touched && reactiveForm.get('firstName').errors?.required"
+         class="error">
+      Please enter your first name
+    </div>
+    <div *ngIf="reactiveForm.get('firstName').errors?.minlength"
+         class="error">
+      Value must be longer than 3 characters
+    </div>
 
-  <label>radio1</label>
-  <input formControlName="radioButton"
-         id="radio1"
-         type="radio"
-         value="radio1">
-  <label for="radio2">radio2</label>
-  <input formControlName="radioButton"
-         id="radio2"
-         type="radio"
-         value="radio2">
+    <button [disabled]="reactiveForm.invalid"
+            type="submit">Submit</button>
+    <button type="button"
+            (click)="populateForm()">Populate form</button>
+    <button type="button"
+            (click)="clearValidation()">Clear validators</button>
+    <button type="button"
+            (click)="setValidation()">Set validators</button>
+    <button type="button"
+            (click)="logForm()">Log form</button>
+    <button type="button"
+            (click)="addValueChangesSubscribtion()">Add value changes subscription</button>
 
-  <label for="checkbox1"></label>
-  <input formControlName="checkbox"
-         id="checkbox1"
-         type="checkBox"
-         value="checkbox1">
-
-  <button [disabled]="reactiveForm.invalid"
-          type="submit">Submit</button>
-  <button type="button"
-          (click)="populateForm()">Populate form</button>
-  <button type="button"
-          (click)="clearValidation()">Clear validators</button>
-  <button type="button"
-          (click)="setValidation()">Set validators</button>
-  <button type="button"
-          (click)="logForm()">Log form</button>
-  <button type="button"
-          (click)="addValueChangesSubscribtion()">Add value changes subscription</button>
-
-</form>
+  </form>
+</div>

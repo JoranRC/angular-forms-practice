@@ -1,33 +1,37 @@
-<form [formGroup]="reactiveForm"
-      (ngSubmit)="submitForm()"
-      novalidate>
+<div class="page-wrapper">
+  <h1>Form array form</h1>
+  <form [formGroup]="reactiveForm"
+        (ngSubmit)="submitForm()"
+        novalidate>
 
-  <label formArrayName="names"
-         *ngFor="let name of getFormNamesArray().controls; let i=index">
-    Name
-    <input type="text"
-           placeholder="Name"
-           [formControlName]="i" />
-  </label>
-
-  <div formArrayName="namesAndSurnames"
-       *ngFor="let nameAndSurname of getFormNamesAndSurnamesArray().controls; let i=index">
-    <label [formGroupName]="i">
+    <label formArrayName="names"
+           *ngFor="let name of getFormNamesArray().controls; let i=index">
+      Name form control
       <input type="text"
              placeholder="Name"
-             formControlName="name" />
+             [formControlName]="i" />
     </label>
-    <label [formGroupName]="i">
-      <input type="text"
-             placeholder="Surname"
-             formControlName="surname" />
-    </label>
-  </div>
 
-  <button [disabled]="reactiveForm.invalid "
-          type="submit">Submit</button>
-  <button type="button"
-          (click)="addFormControl()">Add name</button>
-  <button type="button"
-          (click)="addFormGroup()">Add name and surname (form group)</button>
-</form>
+    <div formArrayName="namesAndSurnames"
+         *ngFor="let nameAndSurname of getFormNamesAndSurnamesArray().controls; let i=index">
+         Name and surname form group
+      <label [formGroupName]="i">
+        <input type="text"
+               placeholder="Name"
+               formControlName="name" />
+      </label>
+      <label [formGroupName]="i">
+        <input type="text"
+               placeholder="Surname"
+               formControlName="surname" />
+      </label>
+    </div>
+
+    <button [disabled]="reactiveForm.invalid "
+            type="submit">Submit</button>
+    <button type="button"
+            (click)="addFormControl()">Add name</button>
+    <button type="button"
+            (click)="addFormGroup()">Add name and surname (form group)</button>
+  </form>
+</div>

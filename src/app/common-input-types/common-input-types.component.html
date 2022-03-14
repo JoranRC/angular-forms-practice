@@ -1,78 +1,82 @@
-<form novalidate
-      (ngSubmit)="submitForm()"
-      [formGroup]="reactiveForm">
+<div class="page-wrapper">
+  <h1>Common input types form</h1>
+  <form novalidate
+        (ngSubmit)="submitForm()"
+        [formGroup]="reactiveForm">
 
-  <label>Name
-    <input type="text"
-           placeholder="Name"
-           formControlName="name"
-           required />
-  </label>
-  <div *ngIf="reactiveForm.get('name').errors?.required && showError"
-       class="error">
-    Name field is required
-  </div>
-
-  <label>
-    Male
-    <input formControlName="gender"
-           type="radio"
-           value="Male">
-  </label>
-  <label>
-    Female
-    <input formControlName="gender"
-           type="radio"
-           value="Female">
-  </label>
-  <label>
-    Other
-    <input formControlName="gender"
-           type="radio"
-           value="Other">
-  </label>
-
-  <label formArrayName="hobbies"
-         *ngFor="let hobby of getHobbies().controls; let i=index">
-    Hobby
-    <input type="text"
-           placeholder="Hobby"
-           [formControlName]="i"
-           required />
-  </label>
-  <div *ngIf="getHobbies().invalid && showError"
-       class="error">
-    One or more required hobby fields are not filled in
-  </div>
-
-  <div [formGroup]="reactiveForm.controls.adress">
-    <label>Street
+    <label>Name
       <input type="text"
-             placeholder="Street"
-             formControlName="street"
+             placeholder="Name"
+             formControlName="name"
              required />
     </label>
-    <label>Street
-      <input type="number"
-             placeholder="Number"
-             formControlName="number"
+    <div *ngIf="reactiveForm.get('name').errors?.required && showError"
+         class="error">
+      Name field is required
+    </div>
+
+    <label>
+      Male
+      <input formControlName="gender"
+             type="radio"
+             value="Male">
+    </label>
+    <label>
+      Female
+      <input formControlName="gender"
+             type="radio"
+             value="Female">
+    </label>
+    <label>
+      Other
+      <input formControlName="gender"
+             type="radio"
+             value="Other">
+    </label>
+
+    <label formArrayName="hobbies"
+           *ngFor="let hobby of getHobbies().controls; let i=index">
+      Hobby
+      <input type="text"
+             placeholder="Hobby"
+             [formControlName]="i"
              required />
     </label>
-  </div>
+    <div *ngIf="getHobbies().invalid && showError"
+         class="error">
+      One or more required hobby fields are not filled in
+    </div>
 
-  <label class="checkbox">
-    Accept terms
-    <input formControlName="acceptedTerms"
-           type="checkbox">
-  </label>
+    <div [formGroup]="reactiveForm.controls.adress">
+      <label>Street
+        <input type="text"
+               placeholder="Street"
+               formControlName="street"
+               required />
+      </label>
+      <label>Street
+        <input type="number"
+               placeholder="Number"
+               formControlName="number"
+               required />
+      </label>
+    </div>
 
-  <button type="submit">Submit</button>
-  <button type="button"
-          (click)="logForm()">Log form</button>
-  <button type="button"
-          (click)="addHobby()">Add hobby</button>
-  <button type="button"
-          (click)="removeHobby()">Remove hobby</button>
-</form>
+    <label class="checkbox">
+      Accept terms
+      <input formControlName="acceptedTerms"
+             type="checkbox">
+    </label>
 
-Reactive form value: {{reactiveForm.value | json}}
+    <button type="submit">Submit</button>
+    <button type="button"
+            (click)="logForm()">Log form</button>
+    <button type="button"
+            (click)="addHobby()">Add hobby</button>
+    <button type="button"
+            (click)="removeHobby()">Remove hobby</button>
+  </form>
+
+  Reactive form value: {{reactiveForm.value | json}}
+
+</div>

@@ -1,8 +1,12 @@
-<form [formGroup]="reactiveForm"
-      (ngSubmit)="submitForm()">
+<div class="page-wrapper">
+  <h1>Custom checkboxes form</h1>
+  <form [formGroup]="reactiveForm"
+        (ngSubmit)="submitForm()">
 
-  <check-boxes [reactiveFormArray]="this.reactiveForm.controls.checkBoxesArray" [data]="data"></check-boxes>
+    <check-boxes [reactiveFormArray]="this.reactiveForm.controls.checkBoxesArray"
+                 [data]="data"></check-boxes>
 
-  <button [disabled]="reactiveForm.invalid "
-          type="submit">Submit</button>
-</form>
+    <button [disabled]="reactiveForm.invalid "
+            type="submit">Submit</button>
+  </form>
+</div>
