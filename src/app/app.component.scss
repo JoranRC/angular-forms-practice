@@ -4,6 +4,7 @@ body {
 
 a {
     margin: 16px;
+    display: inline-block;
 }
 
 h1 {
@@ -20,11 +21,17 @@ button {
 label {
     display: block;
     margin-bottom: 16px;
-    &.checkbox {
+
+    &.checkbox, 
+    &.radio {
         display: inline-block;
         input {
-            display: inline-block
+            display: inline-block;
         } 
+    }
+
+    &.radio {
+        margin-right: 16px;
     }
 }
 

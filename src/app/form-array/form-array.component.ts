@@ -31,11 +31,11 @@ export class FormArrayComponent implements OnInit {
 
   addFormControl(): void {
     this.getFormNamesArray().push(this.fb.control(''));
-    this.reactiveForm.reset();
   }
 
   addFormGroup(): void {
-      this.getFormNamesAndSurnamesArray().push(this.fb.group({name: this.fb.control(''), surname: this.fb.control('')}))
+      this.getFormNamesAndSurnamesArray()
+      .push(this.fb.group({name: this.fb.control(''), surname: this.fb.control('')}))
   }
 
   submitForm(): void {

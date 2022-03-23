@@ -13,12 +13,8 @@ export class TemplateDrivenComponent implements OnInit {
 
   ngOnInit(): void {
     this.person = {
-        firstName: ''
-      }
-  }
-
-  logForm(form: FormGroup): void {
-    console.log(form);
+      firstName: ''
+    }
   }
 
   submitForm(form: FormGroup): void {

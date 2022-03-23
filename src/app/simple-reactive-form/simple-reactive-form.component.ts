@@ -17,10 +17,6 @@ export class SimpleReactiveFormComponent implements OnInit {
     });
   }
 
-  logForm(): void {
-    console.log(this.reactiveForm);
-  }
-
   submitForm(): void {
     console.log(this.reactiveForm);
   }
